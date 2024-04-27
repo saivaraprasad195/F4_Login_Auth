@@ -1,150 +1,178 @@
 
-body{background-color: #000;
-color:white;}
-
-label {
-    color:white; 
+body{
+  background-color: #000;
+  color:white;
 }
 
+label {
+  color:white; 
+}
+
+#section,#profile{
+  width: 600px;
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  background-color: #131313;
+  border-radius: 15px;
+}
+
+#profile{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+#profile>h2{
+  margin-bottom: 20px;
+}
+
+#profile>p{
+  font-size: 18px;
+}
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    border: 0px transparent; 
+    border: 0px transparent;
+    background-color: transparent;
 }
 
 button {
-    background-color:  #fff; 
+  background-color:  #fff;
+  color: black; 
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
 }
-
-button {
-    color: black; 
-}
-
 
 button:hover {
-    background-color: #0056b3; 
+  background-color: #0056b3; 
+  color: white;
+  cursor: pointer;
 }
 .message {
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-  }
+*{
+  margin: 0;
+  padding: 0;
+}
   
 form {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 input {
-    background-color: black;
-    color: white;
-    border: none;
-    border-bottom: 1px solid;
-    outline: none;
-    font-size: 1.1rem;
-    padding: 5px 3px;
+  width: 80%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  font-size: 1.1rem;
+  padding: 5px 3px;
 }
 
 ::placeholder {
-    color: white;
+  color: white;
 }
 .message-error {
-    color: red;
+  color: red;
 }
 .message-success {
-    color: green;
+  color: green;
 }
   
 button {
-    margin-top: 15px;
-    width: 100px;
-    padding: 7px 10px;
+  margin-top: 15px;
+  width: 100px;
+  padding: 7px 10px;
 }
 
 .link{
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .profile{
-    margin-top: 8vh;
-    margin-left: 2vw;
+  margin-top: 8vh;
+  margin-left: 2vw;
 }
 
 .message-wrap{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 1.5rem;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.5rem;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
   
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .message {
-    padding: 10px;
-    margin-bottom: 10px;
-    font-weight: bold;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .error {
-    color: red;
+  color: red;
 }
 
 .success {
-    color: green;
+  color: green;
 }
 
 .header-container {
-    margin: 20px;
+  margin: 20px;
 }
 
 .header {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 
 .button-container {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .top-right-btn {
-    border: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .top-right-btn:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
  
 .spacer {
-    margin-top: 24px;
+    margin: 24px 0px 100px 0px;
 }
 
 

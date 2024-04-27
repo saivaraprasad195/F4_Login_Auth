@@ -27,29 +27,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
             <hr class="spacer">
-
+            <div id ="section">
             <h2>Sign Up</h2>
             <form id="signup-form">
                 <!-- Your sign-up form HTML here -->
                 <div class="form-group">
                     <label for="fullName"></label> 
-                    <input type="text" id="fullName" name="fullName" placeholder="Full name">
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name" onfocus="this.placeholder=''" onblur="this.placeholder='Full Name'">
                 </div> <hr>
                 <div class="form-group">
                     <label for="email"></label>
-                    <input type="email" id="email" name="email" placeholder="Email address">
+                    <input type="email" id="email" name="email" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'">
                 </div> <hr> 
                 <div class="form-group">
                     <label for="password"></label>
-                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input type="password" id="password" name="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'">
                 </div> <hr>
                 <div class="form-group">
                     <label for="confirmPassword"></label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder=''" onblur="this.placeholder='Confirm Password'">
                 </div> <hr>
                 <button type="submit">Sign Up</button>
                 <div id="message"></div> 
             </form>
+            </div>
         `;
     }
 
@@ -62,45 +63,46 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button id="profile-btn" class="top-right-btn">Profile</button>
                 </div>
             </div>
+
             <hr class="spacer">
-    
+
+            <div id="profile">
             <h2>Profile</h2>
             <p>Full Name: ${user.fullName}!</p>
             <p>Email: ${user.email}</p>
             <p>Password: ${user.password}</p>
     
             <button id="logout-btn">Logout</button>
+            </div>
         `;
     }
 
     function handleLogout() {
         localStorage.removeItem("user");
         user = null;
-        window.location.hash = ''; // Navigate to default route
+        window.location.hash = ''; 
         render();
     }
 
     function handleSignUp(formData) {
-        // Check for empty fields
+
         if (!formData.fullName || !formData.email || !formData.password || !formData.confirmPassword) {
             showMessage("Error : All fields are mandatory", "error");
             return;
         }
 
-        // Check if passwords match
         if (formData.password !== formData.confirmPassword) {
             showMessage("Passwords do not match", "error");
             return;
         }
 
-        // Save user data and render profile
         localStorage.setItem("user", JSON.stringify(formData));
         user = formData;
         showMessage("Successfully signed up!", "success");
         setTimeout(function() {
-            window.location.hash = 'profile'; // Navigate to profile page
+            window.location.hash = 'profile'; 
             render();
-        }, 500); // Delay in milliseconds
+        }, 500); 
     }
 
     function showMessage(message, type) {
@@ -127,25 +129,17 @@ document.addEventListener("DOMContentLoaded", function () {
             handleLogout();
         }
     });
-
-    // Add event listener for beforeunload event
-    window.addEventListener("beforeunload", function(event) {
-        // Save current state to localStorage
-        localStorage.setItem("currentState", JSON.stringify({ user }));
-
-        // Remove user data from localStorage
+  
+    window.addEventListener("beforeunload", function(event) { 
+        localStorage.setItem("currentState", JSON.stringify({ user }));  
         localStorage.removeItem("user");
     });
-
-    // Check if there's a saved state in localStorage and restore it
+ 
     const savedState = JSON.parse(localStorage.getItem("currentState"));
     if (savedState && savedState.user) {
         user = savedState.user;
     }
 
-    // Add event listener for hashchange to handle routing
     window.addEventListener('hashchange', render);
-
-    // Initial rendering
     render();
 });
